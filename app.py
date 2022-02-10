@@ -8,12 +8,6 @@ app.config["DEBUG"] = True
 def home():
     return '''<h1>StockPrediction API</h1><p>Welcome back, Josh.</p>'''
 
-
-@app.route('/api/v1/stocks/{id}', methods=['GET'])
-def api_all():
-    return ''
-
-
 @app.route('/api/v1/stocks/{exchange}', methods=['GET'])
 def api_id():
     # Check if an ID was provided as part of the URL.
