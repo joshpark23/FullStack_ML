@@ -7,12 +7,12 @@ $component-background-color: #222732;
 /* Dimensions */
 $side-nav-width: 5em;
 
+html,body {
+    height:100%;
+}
+
 html {
-    max-width: 100vw;
-    max-height: 100vh;
-
     overflow: hidden;
-
     margin: 0;
 }
 

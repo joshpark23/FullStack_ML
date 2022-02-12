@@ -1,19 +1,22 @@
 @import './../../../styles.scss';
 
 .side-nav {
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-
-    height: 100vh;
+    height: 100%;
     width: $side-nav-width;
 
     background-color: $component-background-color;
 
-    padding-top: 5em;
+    .icon-container {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+
+        // padding-top: 10em;
+    }
 }
 
 i {
-    font-size: 2em;
+    font-size: 1.5em;
     color: white;
+    margin: 1em 0;
 }
