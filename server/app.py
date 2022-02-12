@@ -8,7 +8,7 @@ app.config["DEBUG"] = True
 
 @app.route('/', methods=['GET'])
 def home():
-    return '''<h1>Welcome back Josh!</h1>'''
+    return '''<h1>Stock Visualizer web service!</h1>'''
 
 @app.route('/api/stock/all', methods=['GET'])
 def get_stock():
