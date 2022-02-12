@@ -24,3 +24,6 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
             * chart                         not started
             * portfolio-summary             not started
             * recommendations               not started
+        * ai-configurations
+        * settings
+        * info
