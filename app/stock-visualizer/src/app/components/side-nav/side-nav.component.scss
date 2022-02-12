@@ -1,0 +1,8 @@
+@import './../../../styles.scss';
+
+.side-nav {
+    width: $side-nav-width;
+    height: 100vh;
+
+    background-color: $component-background-color;
+}

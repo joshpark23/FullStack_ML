@@ -1,0 +1,13 @@
+@import './../styles.scss';
+
+.main {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+
+    .main-content {
+        width: calc(100vw - 5em);
+        height: 100vh;
+    }
+}
