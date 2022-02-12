@@ -8,6 +8,11 @@ $component-background-color: #222732;
 $side-nav-width: 5em;
 
 html {
+    max-width: 100vw;
+    max-height: 100vh;
+
+    overflow: hidden;
+
     margin: 0;
 }
 

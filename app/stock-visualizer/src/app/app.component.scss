@@ -3,8 +3,13 @@
 .main {
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-between;
-    align-items: center;
+
+    height: 100vh;
+    width: 100vw;
+
+    app-side-nav {
+        max-height: 100vh;
+    }
 
     .main-content {
         width: calc(100vw - 5em);

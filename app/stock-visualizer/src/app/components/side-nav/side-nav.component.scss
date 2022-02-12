@@ -1,8 +1,19 @@
 @import './../../../styles.scss';
 
 .side-nav {
-    width: $side-nav-width;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+
     height: 100vh;
+    width: $side-nav-width;
 
     background-color: $component-background-color;
+
+    padding-top: 5em;
+}
+
+i {
+    font-size: 2em;
+    color: white;
 }
