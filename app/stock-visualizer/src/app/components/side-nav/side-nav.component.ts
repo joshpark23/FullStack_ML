@@ -1,4 +1,6 @@
+import { StockDataService } from './../../services/stock-data.service';
 import { Component, OnInit } from '@angular/core';
+import { take } from 'rxjs/internal/operators/take';
 
 @Component({
   selector: 'app-side-nav',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SideNavComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private dataService: StockDataService
+  ) { }
 
   ngOnInit(): void {
+
+  }
+
+  requestData(ticker: string): void {
+    this.dataService.getStock(ticker)
+      .pipe(take(1))
+      .subscribe(data => {
+        console.table(data);
+      })
   }
 
 }

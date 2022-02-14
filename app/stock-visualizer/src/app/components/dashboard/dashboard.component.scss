@@ -2,5 +2,10 @@
 
 .dashboard {
     height: 100%;
-    background-color: $background-color;
+    // background-color: $background-color;
+    background-color: white;
+
+    .chart-container {
+        height: 500px;
+    }
 }
