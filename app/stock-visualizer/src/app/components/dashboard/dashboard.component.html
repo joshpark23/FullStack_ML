@@ -1,18 +1,18 @@
 <div class="dashboard">
     <div id="chart-container">
-        <ngx-charts-bar-vertical
+        <ngx-charts-area-chart
             [view]="view"
             [scheme]="colorScheme"
-            [results]="single"
-            [gradient]="gradient"
-            [xAxis]="showXAxis"
-            [yAxis]="showYAxis"
-            [legend]="showLegend"
+            [legend]="legend"
             [showXAxisLabel]="showXAxisLabel"
             [showYAxisLabel]="showYAxisLabel"
+            [xAxis]="xAxis"
+            [yAxis]="yAxis"
             [xAxisLabel]="xAxisLabel"
             [yAxisLabel]="yAxisLabel"
+            [timeline]="timeline"
+            [results]="multi"
             (select)="onSelect($event)">
-        </ngx-charts-bar-vertical>
+        </ngx-charts-area-chart>
     </div>
 </div>
