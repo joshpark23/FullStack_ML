@@ -1,3 +1,4 @@
+import { Data } from './../complex-types/data.ct';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
@@ -17,6 +18,6 @@ export class StockDataService {
   ) { }
 
   getStock(ticker: string) {
-    return this.http.get(this.dataUrl + this.route);
+    return this.http.get<any>(this.dataUrl + this.route);
   }
 }
