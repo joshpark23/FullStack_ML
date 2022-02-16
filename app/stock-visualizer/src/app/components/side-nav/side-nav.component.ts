@@ -35,6 +35,8 @@ export class SideNavComponent implements OnInit {
         this.stock.data = DataManager.toDTO(data);
 
         console.log(this.stock);
+
+        console.log(DataManager.toOpenSeries(this.stock));
       });
   }
 
