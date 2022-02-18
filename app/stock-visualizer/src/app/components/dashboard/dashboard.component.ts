@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Color, ScaleType } from '@swimlane/ngx-charts';
+import { take } from 'rxjs/operators';
+import { Stock } from 'src/app/model/stock';
+import { StockDataService } from 'src/app/services/stock-data.service';
+import { DataManager } from 'src/app/utils/data-manager.util';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,87 +12,26 @@ import { Color, ScaleType } from '@swimlane/ngx-charts';
 })
 export class DashboardComponent implements OnInit {
 
-  multi = [
-    {
-      "name": "Germany",
-      "series": [
-        {
-          "name": "1990",
-          "value": 62000000
-        },
-        {
-          "name": "2010",
-          "value": 73000000
-        },
-        {
-          "name": "2011",
-          "value": 89400000
-        }
-      ]
-    },
-  
-    {
-      "name": "USA",
-      "series": [
-        {
-          "name": "1990",
-          "value": 250000000
-        },
-        {
-          "name": "2010",
-          "value": 309000000
-        },
-        {
-          "name": "2011",
-          "value": 311000000
-        }
-      ]
-    },
-  
-    {
-      "name": "France",
-      "series": [
-        {
-          "name": "1990",
-          "value": 58000000
-        },
-        {
-          "name": "2010",
-          "value": 50000020
-        },
-        {
-          "name": "2011",
-          "value": 58000000
-        }
-      ]
-    },
-    {
-      "name": "UK",
-      "series": [
-        {
-          "name": "1990",
-          "value": 57000000
-        },
-        {
-          "name": "2010",
-          "value": 62000000
-        }
-      ]
-    }
-  ];
-  
+  stock: Stock = {
+    name: '',
+    symbol: '',
+    data: undefined
+  };
 
-  view: [number, number] = [800, 800];
+  multi!: any[];
+  
+  // W, H
+  view: [number, number] = [1600, 1200];
 
   legend: boolean = true;
-  showLabels: boolean = true;
+  showLabels: boolean = false;
   animations: boolean = true;
   xAxis: boolean = true;
   yAxis: boolean = true;
   showYAxisLabel: boolean = true;
   showXAxisLabel: boolean = true;
   xAxisLabel: string = 'Year';
-  yAxisLabel: string = 'Population';
+  yAxisLabel: string = 'Price';
   timeline: boolean = true;
 
   colorScheme: Color = {
@@ -99,14 +42,30 @@ export class DashboardComponent implements OnInit {
   };
 
 
-  constructor() { }
+  constructor(private dataService: StockDataService) { }
 
   ngOnInit(): void {
-
+    this.requestData('MSFT');
   }
 
   onSelect(event: any) {
     console.log(event);
+  }
+
+  requestData(ticker: string): void {
+    this.dataService.getStock(ticker)
+      .pipe(take(1))
+      .subscribe(data => {
+        this.stock.name = "Microsoft";
+        this.stock.symbol = "MSFT";
+        this.stock.data = DataManager.toDTO(data);
+
+        console.log(this.stock);
+
+        console.log(DataManager.toOpenSeries(this.stock));
+
+        this.multi = DataManager.toOpenSeries(this.stock);
+      });
   }
 
 }

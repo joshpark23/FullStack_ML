@@ -12,32 +12,13 @@ import { take } from 'rxjs/internal/operators/take';
 })
 export class SideNavComponent implements OnInit {
 
-  stock: Stock = {
-    name: '',
-    symbol: '',
-    data: undefined
-  };
 
   constructor(
-    private dataService: StockDataService
   ) { }
 
   ngOnInit(): void {
 
   }
 
-  requestData(ticker: string): void {
-    this.dataService.getStock(ticker)
-      .pipe(take(1))
-      .subscribe(data => {
-        this.stock.name = "Microsoft";
-        this.stock.symbol = "MSFT";
-        this.stock.data = DataManager.toDTO(data);
-
-        console.log(this.stock);
-
-        console.log(DataManager.toOpenSeries(this.stock));
-      });
-  }
 
 }

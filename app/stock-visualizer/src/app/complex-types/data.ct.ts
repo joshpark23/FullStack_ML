@@ -1,5 +1,5 @@
 export interface Data {
-    date: number[],
+    date: Date[],
     adjustedClose: number[],
     close: number[],
     high: number[],

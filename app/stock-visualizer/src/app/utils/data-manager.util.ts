@@ -47,28 +47,35 @@ export class DataManager {
         return stockData
     }
 
-    static toOpenSeries(stock: Stock) {
-        const series: Series = {
-            name: '',
-            series: []
-        };
+    /**
+     * Generates a graphable object of the stock's last 500 opening prices.
+     * 
+     * @param stock Stock object to chart
+     * @returns A "multi" object of the Stock's "open" values
+     */
+    static toOpenSeries(stock: Stock): any[] {
+        if (!stock.data) return [{}];
 
-        series.name = stock.name;
-        
-        if (!stock.data) return series;
+        const obj = [{
+            "name": stock.name,
+            "series": [{}]
+        }];
 
-        stock.data.open.forEach(openVal => {
-            let seriesDataObj: SeriesData = {
-                name: '',
-                value: 0
+        obj[0].series.shift();
+
+        let length = stock.data.open.length;
+
+        for (let i = length - 500; i < stock.data.open.length; i++) {
+            let seriesDataObj = {
+                "name": stock.data.date[i],
+                "value": 0
             };
 
-            seriesDataObj.name = 'open';
-            seriesDataObj.value = openVal;
+            seriesDataObj.value = stock.data.open[i];
 
-            series.series.push(seriesDataObj);
-        });
+            obj[0].series.push(seriesDataObj);
+        }
 
-        return series;
+        return obj;
     }
 }
