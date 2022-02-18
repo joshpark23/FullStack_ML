@@ -35,7 +35,7 @@ export class DashboardComponent implements OnInit {
   timeline: boolean = true;
 
   colorScheme: Color = {
-    domain: ['#5AA454', '#E44D25', '#CFC0BB', '#7aa3e5', '#a8385d', '#aae3f5'],
+    domain: ['#7aa3e5'],
     name: 'Joshua',
     selectable: false,
     group: ScaleType.Time
