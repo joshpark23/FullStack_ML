@@ -7,24 +7,6 @@ export class DataManager {
 
     }
 
-    // {
-    //     "name": "Germany",
-    //     "series": [
-    //       {
-    //         "name": "1990",
-    //         "value": 62000000
-    //       },
-    //       {
-    //         "name": "2010",
-    //         "value": 73000000
-    //       },
-    //       {
-    //         "name": "2011",
-    //         "value": 89400000
-    //       }
-    //     ]
-    // }
-
     static toDTO(data: any): Data {
         const stockData: Data = {
             date: [],
@@ -53,7 +35,7 @@ export class DataManager {
      * @param stock Stock object to chart
      * @returns A "multi" object of the Stock's "open" values
      */
-    static toOpenSeries(stock: Stock): any[] {
+    static toCloseSeries(stock: Stock, numDays: number): any[] {
         if (!stock.data) return [{}];
 
         const obj = [{
@@ -63,15 +45,43 @@ export class DataManager {
 
         obj[0].series.shift();
 
-        let length = stock.data.open.length;
+        let length = stock.data.close.length;
 
-        for (let i = length - 500; i < stock.data.open.length; i++) {
+        for (let i = length - numDays; i < stock.data.close.length; i++) {
             let seriesDataObj = {
                 "name": stock.data.date[i],
                 "value": 0
             };
 
-            seriesDataObj.value = stock.data.open[i];
+            seriesDataObj.value = stock.data.close[i];
+
+            obj[0].series.push(seriesDataObj);
+        }
+
+        return obj;
+    }
+
+    static toRangeSeries(stock: Stock, numDays: number): any[] {
+        if (!stock.data) return [{}];
+
+        const obj = [{
+            "name": stock.name,
+            "series": [{}]
+        }];
+
+        obj[0].series.shift();
+
+        let length = stock.data.close.length;
+
+        for (let i = length - numDays; i < stock.data.close.length; i++) {
+            let seriesDataObj = {
+                "name": stock.data.date[i],
+                "value": 0,
+                "min": stock.data.low[i],
+                "max": stock.data.high[i]
+            };
+
+            seriesDataObj.value = stock.data.close[i];
 
             obj[0].series.push(seriesDataObj);
         }

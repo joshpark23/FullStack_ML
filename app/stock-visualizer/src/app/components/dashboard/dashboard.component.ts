@@ -21,7 +21,7 @@ export class DashboardComponent implements OnInit {
   multi!: any[];
   
   // W, H
-  view: [number, number] = [1600, 1200];
+  view: [number, number] = [1200, 600];
 
   legend: boolean = true;
   showLabels: boolean = false;
@@ -33,11 +33,12 @@ export class DashboardComponent implements OnInit {
   xAxisLabel: string = 'Year';
   yAxisLabel: string = 'Price';
   timeline: boolean = true;
+  curve: Function = new Function('natural')
 
   colorScheme: Color = {
-    domain: ['#7aa3e5'],
+    domain: ['#fe216ed1'],
     name: 'Joshua',
-    selectable: false,
+    selectable: true,
     group: ScaleType.Time
   };
 
@@ -60,11 +61,7 @@ export class DashboardComponent implements OnInit {
         this.stock.symbol = "MSFT";
         this.stock.data = DataManager.toDTO(data);
 
-        console.log(this.stock);
-
-        console.log(DataManager.toOpenSeries(this.stock));
-
-        this.multi = DataManager.toOpenSeries(this.stock);
+        this.multi = DataManager.toRangeSeries(this.stock,50);
       });
   }
 
