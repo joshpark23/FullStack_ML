@@ -19,6 +19,14 @@
     <div class="content">
         <!-- chart -->
         <div class="chart-container">
+
+            <div class="chart-header">
+                <div class="price-info">
+                    <div class="current-price">301.6 USD</div>
+                    <div class="change">+131.37 (+77.17%)</div>
+                </div>
+            </div>
+
             <ngx-charts-area-chart
                 [view]="view"
                 [scheme]="colorScheme"
@@ -35,6 +43,10 @@
                 [autoScale]="true"
                 (select)="onSelect($event)">
             </ngx-charts-area-chart>
+        </div>
+
+        <div class="prediction-container">
+            Prediction
         </div>
 
     </div>

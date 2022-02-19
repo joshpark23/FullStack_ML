@@ -46,6 +46,9 @@
 }
 
 .content {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
     height: 100%;
     padding: 2em 12%;
 
@@ -55,8 +58,40 @@
         background-color: $component-background-color;
 
         display: flex;
+        flex-flow: column nowrap;
         justify-content: center;
         align-items: center;
+
+        .chart-header {
+            width: 55em;
+
+            display: flex;
+            flex-flow: row nowrap;
+            align-items:flex-start;
+
+            margin-bottom: 1em;
+
+            .price-info {
+                width: 10em;
+
+                .current-price { 
+                    font-size: 2em;
+                    font-weight: 500;
+                }
+
+                .change {
+                    color: #68f2a9;
+                }
+            }
+        }
+    }
+
+    .prediction-container {
+        height: 50%;
+        width: 30em;
+        float: right;
+        background-color: $component-background-color;
+
     }
 }
 
