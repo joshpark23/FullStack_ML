@@ -33,7 +33,6 @@ export class DashboardComponent implements OnInit {
   xAxisLabel: string = 'Year';
   yAxisLabel: string = 'Price';
   timeline: boolean = true;
-  curve: Function = new Function('natural')
 
   colorScheme: Color = {
     domain: ['#fe216ed1'],
