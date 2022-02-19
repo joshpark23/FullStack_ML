@@ -1,3 +1,3 @@
 # FullStack_ML
-![Alt text](/mockup.jpg)
+![Alt text](/mockup.png)
 ![Alt text](/UML.png)
