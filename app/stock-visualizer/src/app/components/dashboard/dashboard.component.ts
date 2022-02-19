@@ -21,21 +21,21 @@ export class DashboardComponent implements OnInit {
   multi!: any[];
   
   // W, H
-  view: [number, number] = [1200, 600];
+  view: [number, number] = [900, 600];
 
-  legend: boolean = true;
+  legend: boolean = false;
   showLabels: boolean = false;
   animations: boolean = true;
   xAxis: boolean = true;
   yAxis: boolean = true;
-  showYAxisLabel: boolean = true;
-  showXAxisLabel: boolean = true;
+  showYAxisLabel: boolean = false;
+  showXAxisLabel: boolean = false;
   xAxisLabel: string = 'Year';
   yAxisLabel: string = 'Price';
   timeline: boolean = true;
 
   colorScheme: Color = {
-    domain: ['#fe216ed1'],
+    domain: ['#68f2a9'],
     name: 'Joshua',
     selectable: true,
     group: ScaleType.Time
@@ -60,7 +60,7 @@ export class DashboardComponent implements OnInit {
         this.stock.symbol = "MSFT";
         this.stock.data = DataManager.toDTO(data);
 
-        this.multi = DataManager.toRangeSeries(this.stock,50);
+        this.multi = DataManager.toRangeSeries(this.stock,500);
       });
   }
 

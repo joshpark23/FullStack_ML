@@ -1,23 +1,43 @@
 <div class="dashboard">
 
+    <div class="heading">
+        <div class="heading-text-container">
+            <span class="stock-title">MSFT</span>
+            <div class="exchange-currency">NASDAQ - United States Dollar (USD)</div>
 
-    <!-- chart -->
-    <div id="chart-container">
-        <ngx-charts-area-chart
-            [view]="view"
-            [scheme]="colorScheme"
-            [legend]="legend"
-            [showXAxisLabel]="showXAxisLabel"
-            [showYAxisLabel]="showYAxisLabel"
-            [xAxis]="xAxis"
-            [yAxis]="yAxis"
-            [xAxisLabel]="xAxisLabel"
-            [yAxisLabel]="yAxisLabel"
-            [timeline]="timeline"
-            [results]="multi"
-            [gradient]="true"
-            [autoScale]="true"
-            (select)="onSelect($event)">
-        </ngx-charts-area-chart>
+            <div class="sub-tab-container">
+                <div class="sub-tab active-tab">Summary</div>
+                <div class="sub-tab">Prediction Analytics</div>
+                <div class="sub-tab">Prediction History</div>
+                <div class="sub-tab">Statistics</div>
+                <div class="sub-tab">Financials</div>
+                <div class="sub-tab">Historical Data</div>
+            </div>
+        </div>
     </div>
+
+    <div class="content">
+        <!-- chart -->
+        <div class="chart-container">
+            <ngx-charts-area-chart
+                [view]="view"
+                [scheme]="colorScheme"
+                [legend]="legend"
+                [showXAxisLabel]="showXAxisLabel"
+                [showYAxisLabel]="showYAxisLabel"
+                [xAxis]="xAxis"
+                [yAxis]="yAxis"
+                [xAxisLabel]="xAxisLabel"
+                [yAxisLabel]="yAxisLabel"
+                [timeline]="timeline"
+                [results]="multi"
+                [gradient]="true"
+                [autoScale]="true"
+                (select)="onSelect($event)">
+            </ngx-charts-area-chart>
+        </div>
+
+    </div>
+
+
 </div>
