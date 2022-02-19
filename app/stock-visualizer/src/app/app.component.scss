@@ -1,18 +1,10 @@
 @import './../styles.scss';
 
 .main {
-    display: flex;
-    flex-flow: row nowrap;
-
     height: 100%;
-    width: 100vw;
-
-    app-side-nav {
-        max-height: 100vh;
-    }
+    width: 100%;
 
     .main-content {
-        width: calc(100vw - 5em);
         height: 100vh;
     }
 }

@@ -11,6 +11,7 @@ import { InfoComponent } from './components/info/info.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TopNavComponent } from './components/top-nav/top-nav.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     DashboardComponent,
     InfoComponent,
     SettingsComponent,
-    PortfolioComponent
+    PortfolioComponent,
+    TopNavComponent
   ],
   imports: [
     BrowserModule,
