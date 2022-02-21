@@ -67,16 +67,14 @@ class MLDataAccess:
 
         return load_model("/Users/joshpark/Desktop/Projects/FullStack_ML/server/cnn_models/lstm_model.h5")
 
-    def request_prediction(self, model_name: str):
+    def read_model(self, model_name: str):
 
-        # 
-
-        return
+        return load_model(F"/Users/joshpark/Desktop/Projects/FullStack_ML/server/cnn_models/{model_name}.h5")
 
     def update_model(self, model_name: str):
 
         # Load the model
-        model = load_model(F"/Users/joshpark/Desktop/Projects/FullStack_ML/server/cnn_models/{model_name}.h5")
+        model = self.read_model(model_name)
 
         # Train a new model, evaluate both on the new AND old test data. Overwrite if the new one outperforms.
 
