@@ -71,7 +71,7 @@ def create_model(model_name: str, data: pd.DataFrame):
 
     prepared_data = prepare_data(data)
 
-    return _data.create_model(prepare_train_test_data(prepared_data))
+    return _data.create_model(model_name, prepare_train_test_data(prepared_data))
 
 def update_model(model_name: str):
     return _data.update_model(model_name)
